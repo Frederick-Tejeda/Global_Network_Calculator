@@ -1,0 +1,36 @@
+:root{
+    --title: 30px;
+    --small-text: 16px;
+    --black: rgb(30, 30, 30);
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10dvh;
+    background-color: var(--black);
+    color: white;
+    font-size: var(--title);
+    padding: 0 20px;
+    & .header-buttons button{
+        width: 100px;
+        height: 30px;
+        margin: 0 5px;
+        border: none;
+        border-radius: 3px;
+        font-size: var(--small-text);
+        cursor: pointer;
+        background-color: white;
+        transform: scale(1);
+        transition: all 0.3s ease;
+        & a{
+            text-decoration: none;
+            color: var(--black);
+        }
+    }
+    & .header-buttons button:hover{
+        transform: scale(1.1);
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SignIn from '../../components/SignIn.jsx';
+const api = import.meta.env.AUTH_ROUTE;
+---
+
+<Layout subTitle="Sign In">
+    <SignIn api={api} client:load />
+</Layout>
+<script>
+    
+</script>
