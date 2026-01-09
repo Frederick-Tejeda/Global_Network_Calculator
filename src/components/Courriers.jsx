@@ -39,8 +39,8 @@ const Courriers = () => {
   return (
     <section id="courier-container">
       <aside id="sidebar">
-        <h1>Courriers</h1>
-        <p id="subtitle">Consultá los Courriers en tu ciudad. Haz clic en el nombre para ver detalles en el mapa.</p>
+        <h2>Courriers</h2>
+        <p id="subtitle">Consulta los Courriers en tu ciudad. Haz clic en el nombre para ver detalles en el mapa.</p>
 
         <div id="second-block">
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque nostrum vel eum vitae!</p>

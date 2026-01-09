@@ -1,14 +1,14 @@
 #wishlist-container {
-  max-width: 1200px;
+  width: 80%;
   margin: auto;
   padding: 2rem;
 }
 
-#h1-wishlist-header {
-  font-size: 1.5rem;
-  font-weight: 700;
+#wishlist-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: clamp(var(--min-title), var(--title), var(--max-title));
 }
-
 
 #wishlist-grid {
   display: grid;
@@ -33,12 +33,12 @@
 }
 
 #wishlist-card h3 {
-  font-size: 0.95rem;
+  font-size: clamp(var(--min-text), var(--text), var(--max-text));
   margin: 0.7rem 0 0.3rem;
 }
 
 #price {
-  color: #d01111;
+  color: var(--red);
   font-weight: 600;
   margin-bottom: 0.7rem;
 }
@@ -52,7 +52,7 @@
 
 #btn-cart {
   flex: 1;
-  background: #d01111;
+  background: var(--red);
   color: white;
   border: none;
   border-radius: 8px;
@@ -66,12 +66,11 @@
   cursor: pointer;
 }
 
-
 #floating-wishlist {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #d01111;
+  background: var(--red);
   border-radius: 50%;
   width: 48px;
   height: 48px;
