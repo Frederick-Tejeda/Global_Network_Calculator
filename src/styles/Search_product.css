@@ -1,0 +1,107 @@
+
+#Search{
+  max-width: 1000px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+#search-box {
+  display: flex;
+  gap: 10px;
+}
+
+#search-box input {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #e21010;
+  border-radius: 5px;
+}
+
+#search-box button {
+  padding: 14px 25px;
+  background: #e21010;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#terms {
+  text-align: center;
+  font-size: 13px;
+  margin: 15px 0 30px;
+  color: #666;
+}
+
+#config {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+#config div {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+}
+
+#results {
+  display: flex;
+  gap: 30px;
+}
+
+#product {
+  width: 40%;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#product img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#summary {
+  width: 60%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background: #f3f3f3;
+}
+
+#total {
+  font-weight: bold;
+  background: #e8f5e9;
+}
