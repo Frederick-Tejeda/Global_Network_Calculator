@@ -8,7 +8,7 @@ settings:
 dependencies:
   '@astrojs/react':
     specifier: ^4.4.2
-    version: 4.4.2(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.1)(react@19.2.1)
+    version: 4.4.2(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)
   '@tailwindcss/vite':
     specifier: ^4.1.17
     version: 4.1.17(vite@6.4.1)
@@ -24,12 +24,18 @@ dependencies:
   axios:
     specifier: ^1.13.2
     version: 1.13.2
+  leaflet:
+    specifier: ^1.9.4
+    version: 1.9.4
   react:
-    specifier: ^19.2.1
-    version: 19.2.1
+    specifier: ^19.2.3
+    version: 19.2.3
   react-dom:
-    specifier: ^19.2.1
-    version: 19.2.1(react@19.2.1)
+    specifier: ^19.2.3
+    version: 19.2.3(react@19.2.3)
+  react-leaflet:
+    specifier: ^5.0.0
+    version: 5.0.0(leaflet@1.9.4)(react-dom@19.2.3)(react@19.2.3)
   tailwind-merge:
     specifier: ^3.4.0
     version: 3.4.0
@@ -87,7 +93,7 @@ packages:
       prismjs: 1.30.0
     dev: false
 
-  /@astrojs/react@4.4.2(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.1)(react@19.2.1):
+  /@astrojs/react@4.4.2(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3):
     resolution: {integrity: sha512-1tl95bpGfuaDMDn8O3x/5Dxii1HPvzjvpL2YTuqOOrQehs60I2DKiDgh1jrKc7G8lv+LQT5H15V6QONQ+9waeQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
     peerDependencies:
@@ -99,8 +105,8 @@ packages:
       '@types/react': 19.2.7
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react': 4.7.0(vite@6.4.1)
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
       ultrahtml: 1.6.0
       vite: 6.4.1
     transitivePeerDependencies:
@@ -824,6 +830,18 @@ packages:
 
   /@oslojs/encoding@1.1.0:
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
+    dev: false
+
+  /@react-leaflet/core@3.0.0(leaflet@1.9.4)(react-dom@19.2.3)(react@19.2.3):
+    resolution: {integrity: sha512-3EWmekh4Nz+pGcr+xjf0KNyYfC3U2JjnkWsh0zcqaexYqmmB5ZhH37kz41JXGmKzpaMZCnPofBBm64i+YrEvGQ==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^19.0.0
+      react-dom: ^19.0.0
+    dependencies:
+      leaflet: 1.9.4
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
     dev: false
 
   /@rolldown/pluginutils@1.0.0-beta.27:
@@ -2300,6 +2318,10 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /leaflet@1.9.4:
+    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
+    dev: false
+
   /lightningcss-android-arm64@1.30.2:
     resolution: {integrity: sha512-BH9sEdOCahSgmkVhBLeU7Hc9DWeZ1Eb6wNS6Da8igvUwAe0sqROHddIlvU06q3WyXVEOYDZ6ykBZQnjTbmo4+A==}
     engines: {node: '>= 12.0.0'}
@@ -3038,13 +3060,26 @@ packages:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}
     dev: false
 
-  /react-dom@19.2.1(react@19.2.1):
-    resolution: {integrity: sha512-ibrK8llX2a4eOskq1mXKu/TGZj9qzomO+sNfO98M6d9zIPOEhlBkMkBUBLd1vgS0gQsLDBzA+8jJBVXDnfHmJg==}
+  /react-dom@19.2.3(react@19.2.3):
+    resolution: {integrity: sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg==}
     peerDependencies:
-      react: ^19.2.1
+      react: ^19.2.3
     dependencies:
-      react: 19.2.1
+      react: 19.2.3
       scheduler: 0.27.0
+    dev: false
+
+  /react-leaflet@5.0.0(leaflet@1.9.4)(react-dom@19.2.3)(react@19.2.3):
+    resolution: {integrity: sha512-CWbTpr5vcHw5bt9i4zSlPEVQdTVcML390TjeDG0cK59z1ylexpqC6M1PJFjV8jD7CF+ACBFsLIDs6DRMoLEofw==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^19.0.0
+      react-dom: ^19.0.0
+    dependencies:
+      '@react-leaflet/core': 3.0.0(leaflet@1.9.4)(react-dom@19.2.3)(react@19.2.3)
+      leaflet: 1.9.4
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
     dev: false
 
   /react-refresh@0.17.0:
@@ -3052,8 +3087,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react@19.2.1:
-    resolution: {integrity: sha512-DGrYcCWK7tvYMnWh79yrPHt+vdx9tY+1gPZa7nJQtO/p8bLTDaHp4dzwEhQB7pZ4Xe3ok4XKuEPrVuc+wlpkmw==}
+  /react@19.2.3:
+    resolution: {integrity: sha512-Ku/hhYbVjOQnXDZFv2+RibmLFGwFdeeKHFcOTlrt7xplBnya5OGn/hIRDsqDiSUcfORsDC7MPxwork8jBwsIWA==}
     engines: {node: '>=0.10.0'}
     dev: false
 

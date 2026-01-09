@@ -1,5 +1,5 @@
 #search-container{
-    background-color: red;
+    background-color: var(--red);
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;

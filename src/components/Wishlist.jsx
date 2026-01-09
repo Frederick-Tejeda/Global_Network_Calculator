@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/wishlist.css";
+import "../styles/Wishlist.css";
 
 const initialProducts = [
   {
@@ -37,9 +37,9 @@ export default function Wishlist() {
 
   return (
     <section id="wishlist-container">
-      <header id="wishlist-header">
+      <div id="wishlist-header">
         <h2>My Wishlist</h2>
-      </header>
+      </div>
 
       {products.length === 0 ? (
         <p id="empty-wishlist">La Wishlist esta Vacia</p>

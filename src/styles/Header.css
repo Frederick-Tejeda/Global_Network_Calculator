@@ -32,9 +32,9 @@ header{
                 color: var(--black);
             }
         }
-    }
-    & .header-buttons button:hover{
-        transform: scale(1.1);
-        font-weight: bold;
+        & button:hover{
+            transform: scale(1.1);
+            font-weight: bold;
+        }
     }
 }
