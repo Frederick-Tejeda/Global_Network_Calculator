@@ -1,108 +1,131 @@
+/* --- ESTILOS GLOBALES --- */
 body {
-  margin: 0;
-  padding: 0;
-  min-width: 100vw; 
-  min-height: 100vh;
-  overflow: hidden; 
+  margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overscroll-behavior: none; /* Evita rebote en móviles */
 }
 
+/* Contenedor Principal: En Desktop es Flex (Lado a lado) */
 #courier-container {
-    display: flex;
-    height: calc(100vh - 64px);
-    overflow: hidden;
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+  display: flex;       
+  flex-direction: row; 
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-
-
+/* --- SIDEBAR (Estilo Desktop Original) --- */
 #sidebar {
-    width: 35%; 
-    min-width: 320px; 
-    padding: 40px;
-    overflow-y: auto; 
-    border-right: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-    z-index: 2; 
-}
-#sidebar h1 { font-size: 2rem; margin-bottom: 10px; }
-#sidebar h2 { font-size: 1.2rem; margin-bottom: 5px; }
-#subtitle { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4; }
-
-#Line {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
+  width: 35%;           
+  min-width: 320px; 
+  height: 100%; /* Ocupa toda la altura en desktop */       
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  z-index: 20; 
+  display: flex;       
+  flex-direction: column;
+  position: relative; /* En desktop es relativo al flex */
 }
 
-#second-block { margin-bottom: 30px; color: #555; font-size: 0.9rem; }
-
-/*Puntos*/
-#dots { display: flex; gap: 5px; margin-bottom: 30px; }
-#dot { width: 8px; height: 8px; background: #000; border-radius: 50%; }
-
-.locations-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* --- MAPA (Estilo Desktop Original) --- */
+#map-container {
+  flex: 1; /* Ocupa el espacio restante */             
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }
+
+/* Estilos internos del sidebar */
+.sidebar-header {
+  padding: 30px 40px 10px 40px; 
+  background: #fff;
+  flex-shrink: 0;
+}
+
+#sidebar h1 { font-size: 1.8rem; margin: 0 0 10px 0; color: #1a1a1a; }
+#subtitle { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+
+.search-input {
+  width: 100%; padding: 12px; margin-bottom: 15px;
+  border: 1px solid #ddd; border-radius: 8px; font-size: 16px;
+  box-sizing: border-box; outline: none; background: #f9f9f9;
+}
+.search-input:focus { background: #fff; border-color: #d01111; }
+
+.locations-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 40px 40px 40px; 
+}
+
+.locations-list { display: flex; flex-direction: column; gap: 10px; }
 
 .location-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    align-items: flex-start;
-    cursor: pointer; 
-    border-radius: 8px;
-    transition: background 0.2s ease;
-    border: 1px solid transparent;
+  display: flex; gap: 15px; padding: 15px;
+  align-items: flex-start; cursor: pointer; border-radius: 8px;
+  border: 1px solid transparent; transition: background 0.2s ease;
+}
+.location-item:hover { background-color: #f4f4f4; }
+.location-item.active { background-color: #fff5f5; border-left: 4px solid #d01111; }
+
+.icon-pin { width: 24px; height: 24px; flex-shrink: 0; color: #333; }
+.location-item.active .icon-pin { color: #d01111; }
+
+.location-text-container h3 { margin: 0; font-size: 1.1rem; }
+.location-text-container p { font-size: 0.85rem; color: #666; margin-top: 5px; }
+
+.btn-save {
+  padding: 12px 20px; background: #d01111; border: none;
+  color: #fff; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 20px;
+  font-size: 1rem; font-weight: 600;
 }
 
-
-.location-item:hover {
-    background-color: #f4f4f4;
-}
-
-.location-item.active {
-    background-color: #eef2ff;
-    border-left: 4px solid #d01111;
-}
-
-.icon-pin {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    color: #333;
-}
-
-.location-item.active .icon-pin {
-    color: #d01111;
-}
-
-.location-text-container p {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 5px;
-}
+.drag-handle { display: none; } 
 
 
-#map-container {
-    flex: 1; 
-    position: relative;
-    height: 100%;
+
+@media (max-width: 768px) {
+  
+  #courier-container {
+    display: block; 
+  }
+
+  
+  #map-container {
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
+
+  
+  #sidebar {
+    position: fixed; 
+    bottom: 0; left: 0;
     width: 100%;
-    overflow: hidden;
-}
-button {
-  padding: 10px 20px;
-  background: #e21010;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
+    
+    min-width: 0; 
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
+    z-index: 100;
+    padding: 0;
+    transition: height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .sidebar-header { 
+    padding: 10px 20px; 
+    touch-action: none; 
+  }
+  
+  .locations-scroll-area { padding: 0 20px 80px 20px; }
+  
+  #sidebar h1 { font-size: 1.4rem; text-align: center; }
+  #subtitle { text-align: center; display: block; }
+  
+  .drag-handle { 
+    display: block; width: 40px; height: 5px; 
+    background: #ccc; border-radius: 10px; margin: 5px auto 15px auto; 
+  }
 }
