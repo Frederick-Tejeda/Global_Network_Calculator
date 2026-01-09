@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw; 
+  min-height: 100vh;
+  overflow: hidden; 
+}
+
+#courier-container {
+    display: flex;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#sidebar {
+    width: 35%; 
+    min-width: 320px; 
+    padding: 40px;
+    overflow-y: auto; 
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    z-index: 2; 
+}
+#sidebar h1 { font-size: 2rem; margin-bottom: 10px; }
+#sidebar h2 { font-size: 1.2rem; margin-bottom: 5px; }
+#subtitle { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4; }
+
+#Line {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+#second-block { margin-bottom: 30px; color: #555; font-size: 0.9rem; }
+
+/*Puntos*/
+#dots { display: flex; gap: 5px; margin-bottom: 30px; }
+#dot { width: 8px; height: 8px; background: #000; border-radius: 50%; }
+
+.locations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.location-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    align-items: flex-start;
+    cursor: pointer; 
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    border: 1px solid transparent;
+}
+
+
+.location-item:hover {
+    background-color: #f4f4f4;
+}
+
+.location-item.active {
+    background-color: #eef2ff;
+    border-left: 4px solid #d01111;
+}
+
+.icon-pin {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #333;
+}
+
+.location-item.active .icon-pin {
+    color: #d01111;
+}
+
+.location-text-container p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+#map-container {
+    flex: 1; 
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+button {
+  padding: 10px 20px;
+  background: #e21010;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}

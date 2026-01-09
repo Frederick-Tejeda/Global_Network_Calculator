@@ -1,0 +1,88 @@
+#main-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #f2f2f2;
+    padding: 0 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    min-width: 400px;
+    max-width: 600px;
+    aspect-ratio: 4 / 3;
+    border: 1px solid #ccc;
+    & h2 {
+            font-size: var(--subtitle);
+            text-align: center;
+            text-decoration: underline;
+        }
+    & section{
+        text-align: center;
+        & div{
+            position: relative;
+            width: 80%;
+            margin: auto;
+            & label{
+                width: none;
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translate(0%, 0%);
+                color: gray;
+                font-size: var(--text);
+                transition: all 0.2s ease-in-out;
+            }
+            & input{
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: var(--text);
+            }
+            #input-show{
+                position: absolute;
+                right: 0;
+                background-color: gray;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: var(--text);
+                width: 70px;
+                border: 1px solid var(--black);
+            }
+        }
+    }
+    & section:last-child{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        & input, button  {
+            background-color: var(--black);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: var(--text);
+            width: auto;
+            border: 1px solid var(--black);
+        }
+        & input:hover, button:hover{
+            scale: 1.05;
+        }
+        & button{
+            background-color: #f2f2f2;
+            color: var(--black);
+            border: 1px solid var(--black);
+        }
+    }
+}
