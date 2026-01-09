@@ -3,22 +3,23 @@ import Header from '../components/Header.jsx';
 import "../styles/global.css";
 const title = "Global Network Calculator";
 const { subTitle } = Astro.props;
-const { AUTH_ROUTE } = import.meta.env;
+const { PUBLIC_AUTH_ROUTE } = import.meta.env;
 ---
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<!-- <meta name="description" content="Astro description" /> -->
+        <link rel="stylesheet" href="/normalize.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
 		<!-- <meta name="generator" content={Astro.generator} /> -->
 		<title>{ title } | { subTitle } </title>
 	</head>
 	<body>
-		<Header title={title} api={AUTH_ROUTE} client:load/>
-		<main>
-			<slot />
-		</main>
+		<Header title={title} api={PUBLIC_AUTH_ROUTE} client:load />
+		<slot />
 		<footer>
 			<p>&copy; {new Date().getFullYear()} { title }</p>
 		</footer>
@@ -26,10 +27,15 @@ const { AUTH_ROUTE } = import.meta.env;
 </html>
 <style>
 	:root{
-		--title: 30px;
-		--subtitle: 24px;
-		--text: 18px;
-		--small-text: 16px;
+		--title: 4dvmin;
+		--min-title: 20px;
+		--max-title: 30px;
+		--subtitle: 3dvmin;
+		--min-subtitle: 16px;
+		--max-subtitle: 24px;
+		--text: 2dvmin;
+		--min-text: 12px;
+		--max-text: 18px;
 		--black: rgb(30, 30, 30);
 	}
 	html,
@@ -39,18 +45,19 @@ const { AUTH_ROUTE } = import.meta.env;
 		height: 100%;
 		border-sizing: border-box;
 		font-family: Arial, Helvetica, sans-serif;
+		background-color: #fff !important;
 	}
 	body{
 		display: grid;
-		min-width: 100dvh;
 		grid-template-rows: auto 1fr auto;
 	}
-	main, footer{  padding: 0 20px; }
 	footer{
 		background-color: ;
 		text-align: center;
 		background-color: var(--black);
 		color: white;
-		font-size: var(--small-text);
+		font-size: clamp(var(--min-text), var(--text), var(--max-text));
+		width: 100dvw;
+		height: 30px;
 	}
 </style>

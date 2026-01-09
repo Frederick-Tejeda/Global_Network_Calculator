@@ -1,0 +1,8 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ValidatePin from '../../../components/ValidatePin.jsx';
+const api = import.meta.env.PUBLIC_AUTH_ROUTE;
+---
+<Layout subTitle="Validate Pin">
+    <ValidatePin api={api} client:only />
+</Layout>

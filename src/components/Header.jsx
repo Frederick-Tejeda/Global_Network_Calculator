@@ -6,8 +6,8 @@ const Header = ({ title, api }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const name = localStorage.getItem('userName');
-        const token = localStorage.getItem('userToken');
+        const name = sessionStorage.getItem('userName');
+        const token = sessionStorage.getItem('userToken');
         if(!name || !token) return;
         const isValid = async () => {
             try {
@@ -23,37 +23,37 @@ const Header = ({ title, api }) => {
     return (isAuthenticated == true) ? (
             <>
                 <header>
-                <div className="header-title">
-                    <p>{ title }</p>
-                </div>
-                <div className="header-buttons">
-                    <button>
-                        <a href="/dashboard">
-                            Dashboard
-                        </a>
-                    </button>
-                    <button>
-                        <a href="/signout">
-                            Sign Out
-                        </a>
-                    </button>
-                </div>
-            </header>
+                    <div id="header-title">
+                        <p>{ title }</p>
+                    </div>
+                    <div id="header-buttons">
+                        <button>
+                            <a href="/dashboard">
+                                Dashboard
+                            </a>
+                        </button>
+                        <button>
+                            <a href="/signout">
+                                Sign Out
+                            </a>
+                        </button>
+                    </div>
+                </header>
             </>
         ) : (
             <>
                 <header>
-                <div className="header-title">
+                <div id="header-title">
                     <p>{ title }</p>
                 </div>
-                <div className="header-buttons">
+                <div id="header-buttons">
                     <button>
-                        <a href="/signin">
+                        <a href="/auth/sign-in">
                             Sign In
                         </a>
                     </button>
                     <button>
-                        <a href="/signup">
+                        <a href="/auth/sign-up">
                             Sign Up
                         </a>
                     </button>

@@ -37,7 +37,7 @@ form{
                 left: 10px;
                 transform: translate(0%, 0%);
                 color: gray;
-                font-size: clamp(var(--min-text), var(--text), var(--max-text));
+                font-size: clap(var(--min-text), var(--text), var(--max-text));
                 transition: all 0.2s ease-in-out;
             }
             & input{

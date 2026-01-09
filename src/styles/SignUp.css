@@ -2,24 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100dvw;
+    height: calc(100dvh - 10dvh - 30px);
 }
 form{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     background-color: #f2f2f2;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
-    min-width: 400px;
+    min-width: 350px;
     max-width: 600px;
-    aspect-ratio: 4 / 3;
+    height: auto;
     border: 1px solid #ccc;
     & h2 {
-            font-size: var(--subtitle);
+            font-size: clamp(var(--min-subtitle), var(--subtitle), var(--max-subtitle));
             text-align: center;
             text-decoration: underline;
         }
@@ -36,7 +37,7 @@ form{
                 left: 10px;
                 transform: translate(0%, 0%);
                 color: gray;
-                font-size: var(--text);
+                font-size: clamp(var(--min-text), var(--text), var(--max-text));
                 transition: all 0.2s ease-in-out;
             }
             & input{
@@ -44,7 +45,7 @@ form{
                 padding: 10px;
                 border: 1px solid #ccc;
                 border-radius: 5px;
-                font-size: var(--text);
+                font-size: clamp(var(--min-text), var(--text), var(--max-text));
             }
             #input-show{
                 position: absolute;
@@ -55,9 +56,10 @@ form{
                 padding: 10px;
                 border-radius: 5px;
                 cursor: pointer;
-                font-size: var(--text);
+                font-size: clamp(var(--min-text), var(--text), var(--max-text));
                 width: 70px;
                 border: 1px solid var(--black);
+                text-align: center;
             }
         }
     }
@@ -72,12 +74,9 @@ form{
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: var(--text);
+            font-size: clamp(var(--min-text), var(--text), var(--max-text));
             width: auto;
             border: 1px solid var(--black);
-        }
-        & input:hover, button:hover{
-            scale: 1.05;
         }
         & button{
             background-color: #f2f2f2;

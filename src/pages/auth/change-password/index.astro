@@ -1,0 +1,9 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ChangePassword from '../../../components/ChangePassword.jsx';
+const api = import.meta.env.AUTH_ROUTE;
+---
+
+<Layout subTitle="Change Password">
+    <ChangePassword api={api} client:load />
+</Layout>
