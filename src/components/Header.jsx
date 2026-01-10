@@ -6,8 +6,7 @@ const Header = ({ title, api }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const name = sessionStorage.getItem('userName');
-        const token = sessionStorage.getItem('userToken');
+        const token = sessionStorage.getItem('token');
         if(!name || !token) return;
         const isValid = async () => {
             try {

@@ -58,10 +58,11 @@ const SignIn = ({ api }) => {
             return;
         }
         console.log("Submitting:", email, password);
-        const response = await axios.post(`${api}/user/validate`, { email, password });
-        if(response.data.success){
-            sessionStorage.setItem('userToken', response.data.token);
-            sessionStorage.setItem('userName', JSON.stringify(response.data.name));
+        const response = await axios.post(`${api}/api/v1/Auth/login`, { email, password });
+        if(response.status === 200){
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('email', JSON.stringify(response.data.email));
+            sessionStorage.setItem('role', JSON.stringify(response.data.role));
             location.href = '/';
         } else {
             alert("Invalid email or password.");

@@ -5,7 +5,8 @@ import "../styles/SignUp.css";
 const SignUp = ({ api }) => {
 
     const [showRepeatedPassword, setShowRepeatedPassword] = useState(false);
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -14,16 +15,34 @@ const SignUp = ({ api }) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*()--+={}\[\]|\:;"'<>,.?\/_₹])(?!.*\s).{8,32}$/
 ;
 
-    const NameFocused = () => {
-        const label = document?.getElementById("label-name");
+    const FirstNameFocused = () => {
+        const label = document?.getElementById("label-firstName");
         if(!label) return;
         label.style.top = "25px";
         label.style.fontSize = "10px";
         label.style.fontWeight = "bold";
     }
 
-    const NameBlured = (input) => {
-        const label = document?.getElementById("label-name");
+    const FirstNameBlured = (input) => {
+        const label = document?.getElementById("label-firstName");
+        if(!label) return;
+        if(input.target.value === ""){
+            label.style.top = "50%";
+            label.style.fontSize = "clamp(var(--min-text), var(--text), var(--max-text))";
+            label.style.fontWeight = "normal";
+        }
+    }
+
+    const LastNameFocused = () => {
+        const label = document?.getElementById("label-lastName");
+        if(!label) return;
+        label.style.top = "25px";
+        label.style.fontSize = "10px";
+        label.style.fontWeight = "bold";
+    }
+
+    const LastNameBlured = (input) => {
+        const label = document?.getElementById("label-lastName");
         if(!label) return;
         if(input.target.value === ""){
             label.style.top = "50%";
@@ -88,6 +107,14 @@ const SignUp = ({ api }) => {
 
     const HandlerSubmit = async (e) => {
         e.preventDefault();
+        if(firstName.trim() === ""){
+            alert("First name cannot be empty.");
+            return;
+        }
+        if(lastName.trim() === ""){
+            alert("Last name cannot be empty.");
+            return;
+        }
         if(!emailRegex.test(email)){
             alert("Please enter a valid email address.");
             return;
@@ -100,14 +127,15 @@ const SignUp = ({ api }) => {
             alert("Passwords do not match.");
             return;
         }
-        console.log("Submitting:", name, email, password);
-        const response = await axios.post(`${api}/user`, { name, email, password });
-        if(response.data.success){
+        console.log("Submitting:", firstName, lastName, email, password);
+        const response = await axios.post(`${api}/api/v1/Auth/register`, { email, password, firstName, lastName });
+        if(response.status === 200){
             location.href = '/signin';
         } else {
             alert("Something went wrong. Please try again.");
         }
-        setName("");
+        setFirstName("");
+        setLastName("");
         setEmail("");
         setPassword("");
         setRepeatedPassword("");
@@ -120,8 +148,12 @@ const SignUp = ({ api }) => {
                 <h2>Sign Up</h2>
                 <section>
                     <div>
-                        <label id="label-name" htmlFor="name">Name</label><br />
-                        <input type="text" id="input-name" onChange={(e) => setName(e.target.value)} onFocus={() => NameFocused()} onBlur={(input) => NameBlured(input)} name="name" required />
+                        <label id="label-firstName" htmlFor="firstName">First Name</label><br />
+                        <input type="text" id="input-firstName" onChange={(e) => setFirstName(e.target.value)} onFocus={() => FirstNameFocused()} onBlur={(input) => FirstNameBlured(input)} name="firstName" required />
+                    </div>
+                    <div>
+                        <label id="label-lastName" htmlFor="lastName">Last Name</label><br />
+                        <input type="text" id="input-lastName" onChange={(e) => setLastName(e.target.value)} onFocus={() => LastNameFocused()} onBlur={(input) => LastNameBlured(input)} name="lastName" required />
                     </div>
                     <div>
                         <label id="label-email" htmlFor="email">Email</label><br />
