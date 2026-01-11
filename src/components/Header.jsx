@@ -1,25 +1,11 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import "../styles/Header.css";
 
-const Header = ({ title, api }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+const Header = ({ title }) => {
+    const token = sessionStorage.getItem('token');
+    const email = sessionStorage.getItem('email');
+    const role = sessionStorage.getItem('role');
 
-    useEffect(() => {
-        const token = sessionStorage.getItem('token');
-        if(!name || !token) return;
-        const isValid = async () => {
-            try {
-                const response = await axios.post(`${api}/validate-token`, { name, token });
-                setIsAuthenticated(response.data.isValid);
-            } catch (error) {
-                console.error("Error validating token:", error);
-            }
-        };
-        isValid();
-    }, []);
-
-    return (isAuthenticated == true) ? (
+    return (token && email && role) ? (
             <>
                 <header>
                     <div id="header-title">
@@ -27,13 +13,13 @@ const Header = ({ title, api }) => {
                     </div>
                     <div id="header-buttons">
                         <button>
-                            <a href="/dashboard">
-                                Dashboard
+                            <a href="/wishlist">
+                                Wishlist
                             </a>
                         </button>
-                        <button>
-                            <a href="/signout">
-                                Sign Out
+                        <button id="profile-button">
+                            <a href="/profile">
+                               <img src="../profile-icon.png" alt="profile-icon" />
                             </a>
                         </button>
                     </div>

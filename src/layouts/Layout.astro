@@ -18,7 +18,7 @@ const { PUBLIC_AUTH_ROUTE } = import.meta.env;
 		<title>{ title } | { subTitle } </title>
 	</head>
 	<body>
-		<Header title={title} api={PUBLIC_AUTH_ROUTE} client:load />
+		<Header title={title} client:only="react" />
 		<slot />
 		<footer>
 			<p>&copy; {new Date().getFullYear()} { title }</p>

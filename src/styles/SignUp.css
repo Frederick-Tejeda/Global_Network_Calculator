@@ -5,83 +5,234 @@
     width: 100dvw;
     height: calc(100dvh - 10dvh - 30px);
 }
-form{
+.app-container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: auto;
+    overflow-x: hidden;
+    background-color: #f3f4f6;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.slider-section {
+    background-color: var(--red);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    min-width: 350px;
-    max-width: 600px;
-    height: auto;
-    border: 1px solid #ccc;
-    & h2 {
-            font-size: clamp(var(--min-subtitle), var(--subtitle), var(--max-subtitle));
-            text-align: center;
-            text-decoration: underline;
-        }
-    & section{
-        text-align: center;
-        & div{
-            position: relative;
-            width: 80%;
-            margin: auto;
-            & label{
-                width: none;
-                position: absolute;
-                top: 50%;
-                left: 10px;
-                transform: translate(0%, 0%);
-                color: gray;
-                font-size: clamp(var(--min-text), var(--text), var(--max-text));
-                transition: all 0.2s ease-in-out;
-            }
-            & input{
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: clamp(var(--min-text), var(--text), var(--max-text));
-            }
-            #input-show{
-                position: absolute;
-                right: 0;
-                background-color: gray;
-                color: white;
-                border: none;
-                padding: 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: clamp(var(--min-text), var(--text), var(--max-text));
-                width: 70px;
-                border: 1px solid var(--black);
-                text-align: center;
-            }
-        }
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+}
+
+.slider-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.slide-item {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.slide-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    pointer-events: auto;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 80px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.slide-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.slide-desc {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.slider-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 60px;
+}
+
+.nav-dot {
+    width: 30px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-dot.active {
+    background-color: #ffffff;
+}
+
+.form-section {
+    width: 50%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+    z-index: 5;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-header {
+    margin-bottom: 40px;
+}
+
+/* Logo visible solo en mobile para mantener identidad */
+.mobile-logo {
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: var(--red);
+    color: white;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 10px 0;
+}
+
+.form-header p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Campos de Entrada */
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #f3f4f6;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    background-color: #f9fafb;
+}
+
+.input-group input:focus {
+    border-color: var(--red);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.05);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-login:hover {
+    background-color: var(--red);
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+.btn-login:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.form-footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.footer-link {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .app-container{ background-color: #ffffff; }
+    .slider-section {
+    display: none; /* Oculta el slider en móviles */
     }
-    & section:last-child{
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        & input, button  {
-            background-color: var(--black);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: clamp(var(--min-text), var(--text), var(--max-text));
-            width: auto;
-            border: 1px solid var(--black);
-        }
-        & button{
-            background-color: #f2f2f2;
-            color: var(--black);
-            border: 1px solid var(--black);
-        }
+    .form-section { padding: 24px; }
+    .login-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border: solid #e5e7eb 1px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    .mobile-logo {
+    display: flex;
+    }
+    .form-header h2 {
+    font-size: 1.75rem;
     }
 }
