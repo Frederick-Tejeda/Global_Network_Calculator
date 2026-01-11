@@ -40,6 +40,31 @@ input{ font-size: clamp(var(--min-text), var(--text), var(--max-text)); padding:
     /* gap: 10px; */
 }
 
+/* Estilos internos del sidebar */
+.sidebar-header {
+  padding: 30px 40px 10px 40px; 
+  background: #fff;
+  flex-shrink: 0;
+}
+
+#sidebar h1 { font-size: 1.8rem; margin: 0 0 10px 0; color: #1a1a1a; }
+#subtitle { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+
+.search-input {
+  width: 100%; padding: 12px; margin-bottom: 15px;
+  border: 1px solid #ddd; border-radius: 8px; font-size: 16px;
+  box-sizing: border-box; outline: none; background: #f9f9f9;
+}
+.search-input:focus { background: #fff; border-color: #d01111; }
+
+.locations-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 40px 40px 40px; 
+}
+
+.locations-list { display: flex; flex-direction: column; gap: 10px; }
+
 .location-item {
     display: flex;
     gap: 15px;
