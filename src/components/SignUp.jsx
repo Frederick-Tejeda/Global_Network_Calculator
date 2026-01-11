@@ -131,7 +131,7 @@ const SignUp = () => {
         console.log("Submitting:", firstName, lastName, email, password);
         const response = await axios.post(`${api}/api/v1/Auth/register`, { email, password, firstName, lastName });
         if(response.status === 200){
-            location.href = '/signin';
+            location.href = '/auth/sign-in';
         } else {
             alert("Something went wrong. Please try again.");
         }
