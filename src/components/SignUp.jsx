@@ -1,8 +1,9 @@
 import { useState, useEffect, use } from 'react';
 import axios from 'axios';
 import "../styles/SignUp.css";
+const api = import.meta.env.PUBLIC_AUTH_ROUTE;
 
-const SignUp = ({ api }) => {
+const SignUp = () => {
 
     const [showRepeatedPassword, setShowRepeatedPassword] = useState(false);
     const [firstName, setFirstName] = useState("");
