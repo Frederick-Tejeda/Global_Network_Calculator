@@ -1,4 +1,6 @@
+import { useState, useEffect, useRef } from "react";
 import "../styles/Header.css";
+import { set } from "astro:schema";
 
 const Header = ({ title }) => {
     const token = sessionStorage.getItem('token');

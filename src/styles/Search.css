@@ -1,15 +1,7 @@
-#search-container{
-    background-color: var(--red);
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 6;
-}
-@media (max-width: 900px){
-    #search-container{
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 5;
-        grid-row-end: 7;
-    }
+#search-components{
+    width: 100dvw;
+    height: 130dvh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10dvh;
 }

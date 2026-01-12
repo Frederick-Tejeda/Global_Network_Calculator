@@ -1,0 +1,151 @@
+.container{
+    width: 100%;
+    min-width: 350px;
+    max-width: 1200px;  
+    padding: 20px 20px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 50dvh;
+}
+
+.header {
+    margin-bottom: 20px;
+    text-align: center;   
+    font-size: clamp(var(--min-title), var(--title), var(--max-title));
+}
+
+.header h2 {
+    font-size: 2rem;
+    color: #111827;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.courier-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5dvmin;
+}
+
+/* Tarjeta Individual */
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #dc2626; /* Borde rojo al pasar el mouse */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Contenedor de Imagen/Logo */
+.logo-wrapper {
+    width: 100px;
+    height: 100px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #f3f4f6;
+}
+
+.logo-img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: grayscale(100%); /* Efecto flat elegante */
+    transition: filter 0.3s;
+    opacity: 0.8;
+}
+
+.card:hover .logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Información del Courier */
+.courier-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.price-tag {
+    background-color: #f3f4f6;
+    padding: 8px 16px;
+    border-radius: 99px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.price-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.price-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #dc2626;
+}
+
+.price-currency {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* Botón de Acción */
+.card-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #111827;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.card:hover .card-btn {
+    background-color: #dc2626;
+}
+
+/* Estilo para imágenes no encontradas */
+.logo-placeholder {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #d1d5db;
+}
+
+@media (max-width: 640px) {
+    .container { padding: 20px; }
+    .header h2 { font-size: 1.5rem; }
+}

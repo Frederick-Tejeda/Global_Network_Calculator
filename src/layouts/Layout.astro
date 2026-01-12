@@ -3,7 +3,6 @@ import Header from '../components/Header.jsx';
 import "../styles/global.css";
 const title = "Global Network Calculator";
 const { subTitle } = Astro.props;
-const { PUBLIC_AUTH_ROUTE } = import.meta.env;
 ---
 <!doctype html>
 <html lang="en">
@@ -53,7 +52,7 @@ const { PUBLIC_AUTH_ROUTE } = import.meta.env;
 		grid-template-rows: auto 1fr auto;
 	}
 	footer{
-		background-color: ;
+		background-color: var(--black);
 		text-align: center;
 		background-color: var(--black);
 		color: white;

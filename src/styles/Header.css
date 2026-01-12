@@ -5,9 +5,11 @@ header{
     align-items: center;
     width: 100dvw;
     height: 10dvh;
-    background-color: var(--black);
     color: white;
     padding: 0 20px;
+    background-color: var(--black);
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
     & #header-title{
         font-size: clamp(var(--min-title), var(--title), var(--max-title));
     }

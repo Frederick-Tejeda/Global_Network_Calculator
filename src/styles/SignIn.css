@@ -1,13 +1,6 @@
-#main-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100dvw;
-    height: calc(100dvh - 10dvh - 30px);
-}
 .app-container {
     width: 90%;
-    height: 90%;
+    height: 80dvh;
     display: flex;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: auto;

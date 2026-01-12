@@ -7,7 +7,7 @@ import '../styles/Search_product.css';
 const Search_product = () => {
   
     return (
-      <div id="container">
+      <section id="container">
         <section id="Search">
 
           <h2>Busqueda</h2>
@@ -66,6 +66,6 @@ const Search_product = () => {
 
           </div>
         </section>
-      </div>
+      </section>
     )};
 export default Search_product;
